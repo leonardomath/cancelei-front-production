@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import api from './services/api'
 import './App.css';
 
 function App() {
+
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    async function loadUsers() {
+      const response = await api.get('/')
+
+      setUsers(response.data)
+    }
+
+    loadUsers()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav><span>Cancelei</span></nav>
+      <section className="search">
+        <input type="text" placeholder="Nome da pessoa"/>
+        <button type="submit">Procurar</button>
+      </section>
+      <section className="canceled">
+
+        {users.map(user => (
+          <>
+            <ul className="user">
+            <li> <img className="avatarImg" src={user.avatar_url} /> </li>
+          <li><strong>{user.name}</strong></li>
+          <li>Cancelado {user.canceled} vezes</li>
+          <a href={user._id}>ver perfil</a>
+            </ul>
+          </>
+        ))}
+     
+      </section>
     </div>
   );
 }
