@@ -25,7 +25,9 @@ nav {
 .search {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px;
+  flex-direction: column;
 }
 
 .search input {
@@ -34,6 +36,7 @@ nav {
   height: 40px;
   padding-left: 10px;
   border: 1px solid #ccc;
+  text-align: center;
 }
 
 .search button {
@@ -42,6 +45,9 @@ nav {
   cursor: pointer;
   background: #F24130;
   color: #fff;
+  width: 100%;
+  max-width: 260px;
+  height: 40px;
 }
 
 .search button {
@@ -71,4 +77,8 @@ nav {
   height: 150px;
   background-size: cover;
   border-radius: 100%;
+}
+
+.cancelLink {
+  display: block;
 }

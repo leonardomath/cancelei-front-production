@@ -4,7 +4,22 @@ import './App.css';
 
 function App() {
 
+  
+  const [findUser, setFindIsers] = useState('')
+  
   const [users, setUsers] = useState([])
+  
+  const [userFind, setUserFind] = useState([])
+  
+  // function handleOnChange() {
+  //   async function loadFindUser() {
+  //     const response = await api.get(`/user/${findUser}`)
+
+  //     setUserFind(response.data)
+  //   }
+    
+  //   loadFindUser()
+  // }
 
   useEffect(() => {
     async function loadUsers() {
@@ -16,15 +31,37 @@ function App() {
     loadUsers()
   }, [])
 
+  useEffect(() => {
+      async function loadFindUser() {
+      const response = await api.get(`/user/${findUser}`)
+        console.log('user '+response.data)
+      setUserFind(response.data)
+    }
+
+    loadFindUser()
+  }, [findUser])
+
   return (
     <div className="App">
       <nav><span>Cancelei</span></nav>
       <section className="search">
-        <input type="text" placeholder="Nome da pessoa"/>
-        <button type="submit">Procurar</button>
+        <input onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser}/>
+        <button type="submit" >Procurar</button>
+        <a className="cancelLink" href="">Cancelar uma nova pessoa</a>
       </section>
       <section className="canceled">
-
+        { userFind ? (
+          userFind.map(user => (
+          <a href="">{user.name}</a>
+          
+          ))
+      ) : ( 
+           <div>
+          <h1>Usúario não encontrado</h1>
+          console.log('not found')
+            </div> 
+        )
+        }
         {users.map(user => (
           <>
             <ul className="user">
