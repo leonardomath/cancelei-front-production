@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import api from './services/api'
 import './App.css';
+import Nav from './components/Nav';
+import {
+  Link
+} from "react-router-dom";
+
+import Profile from './Cancel'
 
 function App() {
 
@@ -46,37 +52,39 @@ function App() {
 
   return (
     <div className="App">
-      <nav><span>Cancelei</span></nav>
+      <Nav />
       <section className="search">
         <input onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser} />
         <button type="submit" >Procurar</button>
-        <a className="cancelLink" href="">Cancelar uma nova pessoa</a>
+        <Link to="/cancel" className="cancelLink">Cancelar uma nova pessoa</Link>
       </section>
-      <section className="canceled">
-        {userFind ? (
-          userFind.map(user => (
-            <a href="">{user.name}</a>
+      {userFind ? (
+        userFind.map(user => (
+          <a href="">{user.name}</a>
 
-          ))
-        ) : (
-            <div>
-              <h1>Usúario não encontrado</h1>
-              {console.log('not found')}
-            </div>
-          )
-        }
+        ))
+      ) : (
+          <div className="user-not-found">
+            <h1>Essa pessoa nao foi cancelada ainda</h1>
+            {console.log('not found')}
+          </div>
+        )
+      }
+      <section className="canceled">
         {users.map(user => (
           <>
             <ul className="user">
               <li> <img className="avatarImg" src={user.avatar_url} /> </li>
               <li><strong>{user.name}</strong></li>
               <li>Cancelado {user.canceled} vezes</li>
-              <a href={user._id}>ver perfil</a>
+              <Link to={`user/` + user._id}>ver perfil</Link>
             </ul>
           </>
         ))}
 
       </section>
+
+      {/* <Profile /> */}
     </div>
   );
 }

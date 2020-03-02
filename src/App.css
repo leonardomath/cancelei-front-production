@@ -81,4 +81,55 @@ nav {
 
 .cancelLink {
   display: block;
+  margin-top: 10px;
+}
+
+.user-not-found {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Cancel */
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* User */
+
+.userdiv {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.user-profile {
+  padding: 10px 2%;
+  width: 20%;
+  text-align: center;
+}
+
+.user-comments {
+  width: 80%;
+  padding: 10px 2%;
+}
+
+.user-profile img {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+
+.box-canceled {
+  padding: 10px;
+  width: 250px;
+  height: 100px;
+  background: #fff;
+  margin: 10px;
+  border: 1px solid rgba(160, 160, 160, 0.7);
 }
