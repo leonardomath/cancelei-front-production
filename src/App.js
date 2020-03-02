@@ -4,20 +4,20 @@ import './App.css';
 
 function App() {
 
-  
+
   const [findUser, setFindIsers] = useState('')
-  
+
   const [users, setUsers] = useState([])
-  
+
   const [userFind, setUserFind] = useState([])
-  
+
   // function handleOnChange() {
   //   async function loadFindUser() {
   //     const response = await api.get(`/user/${findUser}`)
 
   //     setUserFind(response.data)
   //   }
-    
+
   //   loadFindUser()
   // }
 
@@ -32,9 +32,12 @@ function App() {
   }, [])
 
   useEffect(() => {
-      async function loadFindUser() {
+    async function loadFindUser() {
       const response = await api.get(`/user/${findUser}`)
-        console.log('user '+response.data)
+      console.log('user ' + response.data)
+      if (response.data == '') {
+        response.data = false
+      }
       setUserFind(response.data)
     }
 
@@ -45,34 +48,34 @@ function App() {
     <div className="App">
       <nav><span>Cancelei</span></nav>
       <section className="search">
-        <input onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser}/>
+        <input onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser} />
         <button type="submit" >Procurar</button>
         <a className="cancelLink" href="">Cancelar uma nova pessoa</a>
       </section>
       <section className="canceled">
-        { userFind ? (
+        {userFind ? (
           userFind.map(user => (
-          <a href="">{user.name}</a>
-          
+            <a href="">{user.name}</a>
+
           ))
-      ) : ( 
-           <div>
-          <h1>Usúario não encontrado</h1>
-          console.log('not found')
-            </div> 
-        )
+        ) : (
+            <div>
+              <h1>Usúario não encontrado</h1>
+              {console.log('not found')}
+            </div>
+          )
         }
         {users.map(user => (
           <>
             <ul className="user">
-            <li> <img className="avatarImg" src={user.avatar_url} /> </li>
-          <li><strong>{user.name}</strong></li>
-          <li>Cancelado {user.canceled} vezes</li>
-          <a href={user._id}>ver perfil</a>
+              <li> <img className="avatarImg" src={user.avatar_url} /> </li>
+              <li><strong>{user.name}</strong></li>
+              <li>Cancelado {user.canceled} vezes</li>
+              <a href={user._id}>ver perfil</a>
             </ul>
           </>
         ))}
-     
+
       </section>
     </div>
   );
