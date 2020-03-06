@@ -58,6 +58,8 @@ nav {
   margin: 20px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .user {
@@ -132,4 +134,45 @@ nav {
   background: #fff;
   margin: 10px;
   border: 1px solid rgba(160, 160, 160, 0.7);
+}
+
+/* Overlay */
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+}
+
+
+.overlay form {
+  width: 350px;
+  height: auto;
+  background: #fff;
+  padding: 10px;
+}
+
+.overlay form textarea {
+  resize: none;
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+}
+
+.overlay form button {
+   height: 40px;
+  background: #0540F2;
+  width: 100%;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
 }
