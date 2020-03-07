@@ -22,24 +22,34 @@ function User({ match }) {
 
     loadUser()
   })
-  
+
+  const activeOverlay = () => {
+    const overlay = document.querySelector('.overlay')
+    overlay.style.display = 'flex'
+  }
+
+
 
   return (
-    
+
     <div>
       <Nav />
-      <Overlay />
+      <Overlay userId={match.params.id} />
       {user.map(user => (
         <div className="userdiv">
           <div className="user-profile">
             <img src={user.avatar_url} />
             <p>{user.name}</p>
             <p>Cancelado {user.canceled} vezes</p>
-            <button id="btnCancelarPessoa">Cancelar essa pessoa</button>
+            <button id="btnCancelarPessoa" onClick={activeOverlay}>Cancelar essa pessoa</button>
           </div>
           <div className="user-comments">
             <h2>Motivos dos cancelamentos</h2>
-            <div className="box-canceled">{user.description}</div>
+            <div className="user-comments-int">
+              {user.description.map(desc => (
+                <div className="box-canceled">{desc}</div>
+              ))}
+            </div>
           </div>
         </div>
       ))}

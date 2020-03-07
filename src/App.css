@@ -159,6 +159,7 @@ nav {
   height: auto;
   background: #fff;
   padding: 10px;
+  z-index: 999;
 }
 
 .overlay form textarea {
@@ -175,4 +176,9 @@ nav {
   color: #fff;
   border: 0;
   cursor: pointer;
+}
+
+.user-comments-int {
+  display: flex;
+  flex-wrap: wrap;
 }
