@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Bulma from 'bulma'
 
 export default class components extends Component {
     render() {
@@ -14,5 +15,5 @@ export default class components extends Component {
         )
     }
 
-    
+
 }
