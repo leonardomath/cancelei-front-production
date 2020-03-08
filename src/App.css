@@ -182,3 +182,22 @@ nav {
   display: flex;
   flex-wrap: wrap;
 }
+
+/* body */
+
+.body {
+  display: flex;
+}
+
+.body .findUsers {
+  width: 80%;
+}
+
+.body .top10 {
+  width: 20%;
+  padding-top: 20px;
+}
+
+.body .top10 ul li {
+  margin-bottom: 10px;
+}
