@@ -41,6 +41,7 @@ function App() {
   useEffect(() => {
     const input = document.querySelector('#input').value
     const findUsers = document.querySelector('.findUsers')
+    const canceled = document.querySelector('.canceled')
 
     if (input === '') {
       console.log('no data')
@@ -50,7 +51,7 @@ function App() {
     async function loadFindUser() {
       if (findUser) {
         const response = await api.get(`/user/${findUser}`)
-        findUsers.style.display = 'block'
+        findUsers.style.display = 'flex'
         //console.log('user ' + response.data)
         if (response.data == '') {
           response.data = false
@@ -71,21 +72,29 @@ function App() {
         <Link to="/cancel" className="cancelLink">Cancelar uma nova pessoa</Link>
       </section>
 
-      <section className="body">
-        <div className="findUsers">
-          {userFind ? (
-            userFind.map(user => (
-              <a href="">{user.name}</a>
 
-            ))
-          ) : (
-              <div className="user-not-found">
-                <h1>Essa pessoa nao foi cancelada ainda</h1>
-                {console.log('not found')}
-              </div>
-            )
-          }
-        </div>
+      <div className="findUsers">
+        {userFind ? (
+          userFind.map(user => (
+            <>
+              <ul className="user">
+                <li> <img className="avatarImg" src={user.avatar_url} /> </li>
+                <li><strong>{user.name}</strong></li>
+                <li>Cancelado {user.canceled} vezes</li>
+                <Link to={`user/` + user._id}>ver perfil</Link>
+              </ul>
+            </>
+
+          ))
+        ) : (
+            <div className="user-not-found">
+              <h1>Essa pessoa nao foi cancelada ainda</h1>
+              {console.log('not found')}
+            </div>
+          )
+        }
+      </div>
+      <section className="body">
         <section className="canceled">
           {users.map(user => (
             <>

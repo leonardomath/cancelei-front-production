@@ -201,3 +201,11 @@ nav {
 .body .top10 ul li {
   margin-bottom: 10px;
 }
+
+/* findUsers */
+
+.findUsers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
