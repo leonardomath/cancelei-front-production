@@ -33,10 +33,10 @@ function Overlay(props) {
     return (
         <>
             <div className="overlay">
-                <button onClick={disableOverlay}>Fechar</button>
-                <form method="post" onSubmit={handleDescription}>
-                    <textarea name="description" placeholder="Por que você está cancelando essa pessoa?" onChange={event => setDescription(event.target.value)}></textarea>
-                    <button type="submit">Cancelar</button>
+                <button className="delete" onClick={disableOverlay}>Fechar</button>
+                <form className="box" method="post" onSubmit={handleDescription}>
+                    <textarea className="textarea" name="description" placeholder="Por que você está cancelando essa pessoa?" onChange={event => setDescription(event.target.value)}></textarea>
+                    <button className="button" type="submit">Enviar cancelamento</button>
                 </form>
             </div>
         </>

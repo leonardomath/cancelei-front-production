@@ -67,8 +67,8 @@ function App() {
     <div className="App">
       <Nav />
       <section className="search">
-        <input id="input" value={findUser} onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser} />
-        <button type="submit" >Procurar</button>
+        <input className="input" id="input" value={findUser} onChange={event => setFindIsers(event.target.value)} type="text" placeholder="Nome da pessoa" value={findUser} />
+        <button className="button is-danger" type="submit" >Procurar</button>
         <Link to="/cancel" className="cancelLink">Cancelar uma nova pessoa</Link>
       </section>
 
@@ -98,7 +98,7 @@ function App() {
         <section className="canceled">
           {users.map(user => (
             <>
-              <ul className="user">
+              <ul className="user box">
                 <li> <img className="avatarImg" src={user.avatar_url} /> </li>
                 <li><strong>{user.name}</strong></li>
                 <li>Cancelado {user.canceled} vezes</li>

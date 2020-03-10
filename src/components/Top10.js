@@ -23,7 +23,7 @@ function Top10() {
   return (
     <div className="top10">
       <ul>
-        <h1>Top 10 cancelados</h1>
+        <h1 className="title is-5">Top 10 cancelados</h1>
         {top10.map(user => (
           <>
             <li>

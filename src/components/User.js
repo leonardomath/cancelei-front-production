@@ -39,15 +39,15 @@ function User({ match }) {
         <div className="userdiv">
           <div className="user-profile">
             <img src={user.avatar_url} />
-            <p>{user.name}</p>
-            <p>Cancelado {user.canceled} vezes</p>
-            <button id="btnCancelarPessoa" onClick={activeOverlay}>Cancelar essa pessoa</button>
+            <p className="title is-5">{user.name}</p>
+            <p class="subtitle is-6">Cancelado {user.canceled} vezes</p>
+            <button className="button is-danger no-margin" id="btnCancelarPessoa" onClick={activeOverlay}>Cancelar essa pessoa</button>
           </div>
           <div className="user-comments">
-            <h2>Motivos dos cancelamentos</h2>
+            <h2 className="title">Motivos dos cancelamentos</h2>
             <div className="user-comments-int">
               {user.description.map(desc => (
-                <div className="box-canceled">{desc}</div>
+                <div className="box-canceled box">{desc}</div>
               ))}
             </div>
           </div>

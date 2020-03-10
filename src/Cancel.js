@@ -27,27 +27,32 @@ function Cancel() {
     return (
       <div>
         <Nav />
-        <h1>Cancelar nova pessoa</h1>
+        <section className="cancel">
+        <h1 className="title">Cancelar nova pessoa</h1>
         <form onSubmit={handleSubmit} method="post">
           <input 
+            className="input"
             type="file"
             name="avatar" 
             onChange={event => setAvatar(event.target.files[0])}  
           />
           <input 
+            className="input"
             type="text" 
             placeholder="Nome" 
             name="name"
             onChange={event => setName(event.target.value)}
           />
           <textarea 
+            className="textarea"
             placeholder="Motivo da cancelamento" 
             name="description"
             onChange={event => setDescription(event.target.value)}
           >
           </textarea>
-          <button type="submit">Cadastrar</button>
+          <button className="button is-danger" type="submit">Cadastrar</button>
         </form>
+        </section>
       </div>
     )
 }
