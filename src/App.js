@@ -88,7 +88,7 @@ function App() {
           ))
         ) : (
             <div className="user-not-found">
-              <h1>Essa pessoa nao foi cancelada ainda</h1>
+              <h1 className="userNotFound">Essa pessoa nao foi cancelada ainda</h1>
               {console.log('not found')}
             </div>
           )

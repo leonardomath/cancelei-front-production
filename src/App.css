@@ -238,3 +238,9 @@ nav {
 .cancel input {
   margin: 10px 0;
 }
+
+.userNotFound {
+  margin-top: -15px;
+  font-size: 14px;
+  
+}
