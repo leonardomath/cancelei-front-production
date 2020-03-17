@@ -244,3 +244,38 @@ nav {
   font-size: 14px;
   
 }
+
+/* Medias queries */
+
+@media screen and (max-width: 1024px) {
+  .canceled {
+    width: 60%;
+    height: 630px;
+    overflow-y: auto;
+  }
+  .top10 {
+    width: 40%;
+    justify-content: center;
+  }
+  .cancel {
+    padding: 10px;
+  }
+
+  .userdiv {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .user-profile {
+    width: 100%;
+  }
+
+  .user-comments {
+    width: 100%;
+    text-align: center;
+  }
+
+  .box-canceled {
+    width: 100%;
+  }
+}
