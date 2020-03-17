@@ -24,4 +24,4 @@ app.get("*", (req, res) => {// O wildcard '*' serve para servir o mesmo index.ht
 
 app.listen(configs.port, () => {
   console.log(`Escutando na ${configs.port}!`);
-}); 
+});
